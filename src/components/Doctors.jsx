@@ -1,84 +1,13 @@
-const Doctors = () => {
-  const doctors = [
-    {
-      id: 1,
-      name: 'Dr. Sarah Chen',
-      specialty: 'Cardiology',
-      bio: '15+ years of experience in interventional cardiology and preventive heart care.',
-      imageId: '1594824473246-4bace31b9814'
-    },
-    {
-      id: 2,
-      name: 'Dr. Michael Rodriguez',
-      specialty: 'Pediatrics',
-      bio: 'Board-certified pediatrician specializing in child development and adolescent health.',
-      imageId: '1612349317146-e7d8c7fb5c1a'
-    },
-    {
-      id: 3,
-      name: 'Dr. Amanda Foster',
-      specialty: 'Mental Health',
-      bio: 'Licensed clinical psychologist with expertise in cognitive behavioral therapy and stress management.',
-      imageId: '1576091160550-2173dba999ef'
-    },
-    {
-      id: 4,
-      name: 'Dr. David Kim',
-      specialty: 'General Consultation',
-      bio: 'Family medicine physician focused on preventive care and chronic disease management.',
-      imageId: '1551836022-d5d5140019c6'
-    },
-    {
-      id: 5,
-      name: 'Dr. Lisa Wong',
-      specialty: 'Laboratory Tests',
-      bio: 'Pathologist specializing in diagnostic medicine and laboratory analysis.',
-      imageId: '1598624352813-24d3b7b7a2ec'
-    },
-    {
-      id: 6,
-      name: 'Dr. James Wilson',
-      specialty: 'Emergency Care',
-      bio: 'Emergency medicine physician with expertise in trauma care and critical interventions.',
-      imageId: '1602091407530-28e4e1f5d8e0'
-    }
-  ];
+import { Link } from 'react-router-dom';
 
-  return (
-    <section className="py-20 bg-background-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-primary-900 mb-12">
-          Our Expert Doctors
-        </h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {doctors.map((doctor) => (
-            <div key={doctor.id} className="flex h-full flex-col bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center gap-4 mb-4">
-                <img
-                  src={`https://images.unsplash.com/photo-${doctor.imageId}?w=80&q=80&fit=crop`}
-                  alt={`${doctor.name} portrait`}
-                  className="h-16 w-16 shrink-0 rounded-full object-cover border-2 border-gray-200"
-                />
-                <div className="min-w-0">
-                  <h3 className="truncate text-lg font-semibold text-primary-900">{doctor.name}</h3>
-                  <p className="text-sm text-text-secondary">{doctor.specialty}</p>
-                </div>
-              </div>
-              <p className="flex-grow leading-relaxed text-text-secondary">{doctor.bio}</p>
-              <div className="mt-4 flex justify-start">
-                <a href="#" className="inline-flex items-center gap-1.5 text-black hover:text-gray-700 font-medium">
-                  View Profile
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+const doctors = [
+  ['Dr. Sarah Chen', 'Cardiology', '15+ years of experience in interventional cardiology and preventive heart care.', '1594824473246-4bace31b9814'],
+  ['Dr. Michael Rodriguez', 'Pediatrics', 'Board-certified pediatrician specializing in child development and adolescent health.', '1612349317146-e7d8c7fb5c1a'],
+  ['Dr. Amanda Foster', 'Mental wellbeing', 'Licensed clinical psychologist focused on practical, compassionate support.', '1576091160550-2173dba999ef'],
+  ['Dr. David Kim', 'Family medicine', 'Family physician focused on prevention and long-term health partnerships.', '1551836022-d5d5140019c6'],
+  ['Dr. Lisa Wong', 'Laboratory medicine', 'Pathologist specializing in clear, accurate diagnostic insights.', '1598624352813-24d3b7b7a2ec'],
+  ['Dr. James Wilson', 'Urgent care', 'Emergency physician with expertise in trauma care and critical interventions.', '1602091407530-28e4e1f5d8e0'],
+];
 
+const Doctors = () => <section className="bg-background-dark py-16 sm:py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Your care team</p><h1 className="mt-3 text-4xl font-bold tracking-tight text-primary-900">Meet the people behind your care.</h1><p className="mt-4 leading-7 text-text-secondary">Experienced clinicians who listen carefully and work with you toward better health.</p></div><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{doctors.map(([name, specialty, bio, image]) => <article key={name} className="overflow-hidden rounded-xl border border-primary-100 bg-white"><img src={`https://images.unsplash.com/photo-${image}?w=700&q=80&fit=crop`} alt={`${name} portrait`} className="h-56 w-full object-cover object-top" /><div className="p-6"><p className="text-xs font-bold uppercase tracking-[.12em] text-primary-600">{specialty}</p><h2 className="mt-2 text-xl font-semibold text-primary-900">{name}</h2><p className="mt-3 text-sm leading-6 text-text-secondary">{bio}</p><Link to="/contact" className="mt-5 inline-flex text-sm font-semibold text-primary-700 hover:text-primary-800">Book with {name.split(' ')[1]} →</Link></div></article>)}</div></div></section>;
 export default Doctors;
