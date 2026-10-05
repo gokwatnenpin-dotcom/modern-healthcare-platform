@@ -1,0 +1,18 @@
+import dotenv from 'dotenv';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import pg from 'pg';
+
+const backendDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+dotenv.config({ path: path.join(backendDirectory, '.env') });
+
+const { Pool } = pg;
+
+export const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres@localhost:5432/modern_healthcare',
+  max: 10,
+  idleTimeoutMillis: 30_000,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+});
+
+export const query = (text, params) => pool.query(text, params);

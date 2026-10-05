@@ -42,7 +42,7 @@ export default {
     'hover:bg-primary-700',
     'focus:ring-primary-300',
     'focus:ring-secondary-300',
-    'bg-white\/80',
+    'bg-white/80',
     'hover:bg-gray-50',
     'hover:text-primary-600',
   ],
