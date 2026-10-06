@@ -52,6 +52,10 @@ A fully functional, responsive healthcare platform website built with React and 
 
 The project includes an Express API and PostgreSQL schema in [`backend/`](./backend/). The default local database is `modern_healthcare`. Copy `backend/.env.example` to `backend/.env`, set your PostgreSQL password, then run `npm install`, `npm run migrate`, and `npm run seed` from the project root. After that, `npm run dev` starts both the Vite frontend (`http://localhost:5173`) and API (`http://localhost:4000`). Vite proxies `/api` requests to Express; the browser never connects directly to PostgreSQL.
 
+### Deploying the backend to Render
+
+The root [`render.yaml`](./render.yaml) defines the Express API and a managed PostgreSQL database. In Render, choose **Blueprint** and connect this repository. Set `CLIENT_ORIGIN` to the deployed Vercel URL. After the first deploy, run `npm run migrate` and `npm run seed` once from the backend service shell. The frontend needs `VITE_API_URL` set to the Render API URL in Vercel.
+
 ## Building for Production
 
 To create a production build:

@@ -10,7 +10,7 @@ Express + PostgreSQL backend for the React healthcare platform.
 4. From the project root, create tables and demo data: `npm run migrate && npm run seed`.
 5. From the project root, start both apps: `npm run dev`.
 
-The API runs on `http://localhost:4000`. Demo credentials are `patient@example.com / ChangeMe123!`.
+The API runs on `http://localhost:4000`. Demo credentials are `patient@example.com / ziggy1234`.
 
 ## Main endpoints
 

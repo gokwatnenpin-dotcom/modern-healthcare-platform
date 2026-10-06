@@ -12,7 +12,8 @@ export const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres@localhost:5432/modern_healthcare',
   max: 10,
   idleTimeoutMillis: 30_000,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  ssl: process.env.NODE_ENV === 'production' || process.env.DATABASE_URL?.includes('render.com') || process.env.DB_SSL === 'true'
+    ? { rejectUnauthorized: false } : false,
 });
 
 export const query = (text, params) => pool.query(text, params);

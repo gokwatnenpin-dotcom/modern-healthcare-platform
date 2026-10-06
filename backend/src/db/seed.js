@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import { pool } from './pool.js';
 
-const passwordHash = await bcrypt.hash('ChangeMe123!', 12);
+const passwordHash = await bcrypt.hash('ziggy1234', 12);
 
 const users = [
   { email: 'patient@example.com', firstName: 'Alex', lastName: 'Morgan', role: 'patient' },
@@ -74,7 +74,7 @@ try {
     await client.query('COMMIT');
     console.log('Seed completed with demo healthcare data.');
     console.log('Demo accounts: patient@example.com, doctor@example.com, admin@example.com');
-    console.log('Password for all demo accounts: ChangeMe123!');
+    console.log('Password for all demo accounts: ziggy1234');
   } catch (error) {
     await client.query('ROLLBACK');
     throw error;
